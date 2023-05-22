@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: kubernetes-leader-election-example
+  name: kubernetes-leader-election-example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubernetes-leader-election-example
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: kubernetes-leader-election-example
+    spec:
+      containers:
+      - image: joaomilhome/poc-leader-election
+        name: poc-leader-election
+        ports:
+        - containerPort: 8080
+        resources: {}
+status: {}
